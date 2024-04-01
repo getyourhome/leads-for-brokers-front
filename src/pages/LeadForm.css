@@ -1,0 +1,112 @@
+.app {
+  padding: 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.form-container {
+  max-width: 600px;
+  height: 650px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 1.5rem;
+  box-shadow: rgba(100, 100, 100, 0.2) 0px 7px 29px 0px;
+}
+
+.form-container form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+.inputs-container {
+  min-height: 400px;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+label {
+  font-weight: bold;
+  color: #3f51b5;
+  font-size: 1.1rem;
+}
+
+input,
+select,
+textarea {
+  padding: 0.6rem;
+  border: none;
+  border-radius: 3px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0;
+}
+
+textarea {
+  height: 100px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.actions button {
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  border-radius: 3px;
+  border: none;
+  background-color: #ff4081;
+  color: #cfcfcf;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 0 3px;
+}
+
+.actions button:hover {
+  background-color: #ebebeb;
+}
+
+/* review form */
+
+.form-control.contact-type {
+  flex-direction: row;
+  gap: 2em;
+  justify-content: center;
+}
+.contact-type svg {
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-type svg:hover {
+  fill: #ff4081;
+}
+.contact-type input:checked ~ svg {
+  fill: #ff4081;
+}
+
+.radio-container {
+  text-align: center;
+  position: relative;
+}
+
+.radio-container input {
+  opacity: 0;
+  position: absolute;
+  top: 15px;
+  left: 20px;
+}
