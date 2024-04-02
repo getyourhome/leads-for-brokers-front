@@ -1,11 +1,6 @@
-import React from "react";
-
 const FirstStep = () => {
   return (
     <div>
-      <div className="form-control">
-        <p>O que você procura?</p>
-      </div>
       <div className="form-control">
         <label htmlFor="property-type">Tipo de imóvel:</label>
         <select name="property-type" id="property-type">
@@ -23,11 +18,20 @@ const FirstStep = () => {
         </select>
       </div>
       <div className="form-control">
-        <label htmlFor="property-location">Local:</label>
+        <label htmlFor="property-min-budget">Valor Mínimo:</label>
         <input
-          type="text"
+          type="number"
           name="property-location"
           id="property-location"
+          required
+        />
+      </div>
+      <div className="form-control">
+        <label htmlFor="property-max-budget">Valor Máximo:</label>
+        <input
+          type="number"
+          name="property-max-budget"
+          id="property-max-budget"
           required
         />
       </div>
