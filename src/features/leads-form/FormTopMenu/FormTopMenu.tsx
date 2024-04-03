@@ -9,6 +9,9 @@ type Props = {
 };
 
 const FormTopMenu = ({ currentStep }: Props) => {
+  const apiUrl = import.meta.env.API_URL;
+
+  console.log(apiUrl);
   return (
     <div className="steps">
       <div className={`step ${currentStep >= 0 ? "active" : ""}`}>

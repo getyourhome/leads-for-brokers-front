@@ -1,4 +1,11 @@
-const FourthStep = () => {
+import LeadFormContent from "../interfaces/LeadFormContent";
+
+type Props = {
+  data: LeadFormContent;
+  updateField: (key: string, value: unknown) => void;
+};
+
+const FourthStep = ({ data }: Props) => {
   return (
     <>
       <div className="form-control">

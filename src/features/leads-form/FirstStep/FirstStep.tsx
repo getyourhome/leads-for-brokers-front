@@ -1,4 +1,11 @@
-const FirstStep = () => {
+import LeadFormContent from "../interfaces/LeadFormContent";
+
+type Props = {
+  data: LeadFormContent;
+  updateField: (key: string, value: unknown) => void;
+};
+
+const FirstStep = ({ data }: Props) => {
   return (
     <div>
       <div className="form-control">
@@ -24,6 +31,7 @@ const FirstStep = () => {
           name="property-location"
           id="property-location"
           required
+          value={data.propertyType}
         />
       </div>
       <div className="form-control">
