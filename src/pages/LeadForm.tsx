@@ -9,6 +9,7 @@ import FormActionButtons from "../features/leads-form/FormActionButtons/FormActi
 import LeadFormContent from "../features/leads-form/interfaces/LeadFormContent";
 import stepHandler from "../features/leads-form/hooks/stepHandler";
 import "./LeadForm.css";
+import apiClient from "../infra/apiClient";
 
 type ChangeStepFunction = (
   newStep: number,
@@ -40,6 +41,31 @@ const LeadForm = () => {
     });
   };
 
+  const sendFormHandler = async () => {
+    const data = {
+      neighboorhood: formContent.location,
+      listing_purpose: formContent.purpose,
+      property_type: formContent.propertyType,
+      must_have_items: formContent.mustHaveItems.split(","),
+      desired_items: formContent.desiredItems.split(","),
+      min_budget: formContent.minBudget,
+      max_budget: formContent.maxBudget,
+      name: formContent.tenantName,
+      password: formContent.tenantPassword,
+      email: formContent.tenantEmail,
+      phone: formContent.tenantPhone,
+      document_number: formContent.tenantDocument,
+    };
+
+    try {
+      await apiClient.post("announcer/register/", {
+        data,
+      });
+    } catch (error: unknown) {
+      alert("erro ao enviar o cadastro!!");
+    }
+  };
+
   const formSteps = [
     <FirstStep data={formContent} updateField={updateFieldHandler} />,
     <SecondStep data={formContent} updateField={updateFieldHandler} />,
@@ -68,6 +94,7 @@ const LeadForm = () => {
               currentStep={currentStep}
               isLastStep={isLastStep}
               changeStep={changeStep as ChangeStepFunction}
+              sendForm={sendFormHandler}
             />
           </div>
         </form>

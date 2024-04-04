@@ -10,9 +10,15 @@ type Props = {
     newStep: number,
     event?: React.MouseEvent<HTMLButtonElement>,
   ) => void;
+  sendForm: () => void;
 };
 
-const FormActionButtons = ({ currentStep, isLastStep, changeStep }: Props) => {
+const FormActionButtons = ({
+  currentStep,
+  isLastStep,
+  changeStep,
+  sendForm,
+}: Props) => {
   return (
     <>
       <button type="button" onClick={(e) => changeStep(currentStep - 1, e)}>
@@ -20,12 +26,12 @@ const FormActionButtons = ({ currentStep, isLastStep, changeStep }: Props) => {
         <span>Voltar</span>
       </button>
       {!isLastStep ? (
-        <button type="submit" onClick={(e) => changeStep(currentStep + 1, e)}>
+        <button type="button" onClick={(e) => changeStep(currentStep + 1, e)}>
           <GrFormNext />
           <span>Avançar</span>
         </button>
       ) : (
-        <button type="submit" onClick={(e) => changeStep(currentStep + 1, e)}>
+        <button type="button" onClick={sendForm}>
           <FiSend />
           <span>Enviar</span>
         </button>

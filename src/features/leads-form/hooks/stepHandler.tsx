@@ -10,8 +10,6 @@ const stepHandler = ({ steps }: Props) => {
   const changeStep = (i: number, e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
-    console.log(`STEP: ${i}`);
-
     if (i < 0 || i > steps.length - 1) return;
 
     setCurrentStep(i);

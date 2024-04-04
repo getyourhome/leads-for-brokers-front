@@ -5,7 +5,7 @@ type Props = {
   updateField: (key: string, value: unknown) => void;
 };
 
-const FourthStep = ({ data }: Props) => {
+const FourthStep = ({ data, updateField }: Props) => {
   return (
     <>
       <div className="form-control">
@@ -13,20 +13,24 @@ const FourthStep = ({ data }: Props) => {
       </div>
 
       <div className="form-control">
-        <label htmlFor="property-location">CPF:</label>
+        <label htmlFor="tenant-document">CPF:</label>
         <input
           type="number"
-          name="property-location"
-          id="property-location"
+          name="tenant-document"
+          id="tenant-document"
+          onChange={(e) => updateField("tenantDocument", e.target.value)}
+          value={data.tenantDocument}
           required
         />
       </div>
       <div className="form-control">
-        <label htmlFor="property-location">Senha:</label>
+        <label htmlFor="tenant-password">Senha:</label>
         <input
           type="password"
-          name="property-location"
-          id="property-location"
+          name="tenant-password"
+          id="tenant-password"
+          onChange={(e) => updateField("tenantPassword", e.target.value)}
+          value={data.tenantPassword}
           required
         />
       </div>

@@ -5,7 +5,7 @@ type Props = {
   updateField: (key: string, value: unknown) => void;
 };
 
-const ThirdStep = ({ data }: Props) => {
+const ThirdStep = ({ data, updateField }: Props) => {
   return (
     <>
       <div className="form-control">
@@ -18,6 +18,7 @@ const ThirdStep = ({ data }: Props) => {
           name="tenant-name"
           id="tenant-name"
           value={data.tenantName}
+          onChange={(e) => updateField("tenantName", e.target.value)}
           required
         />
       </div>
@@ -25,9 +26,10 @@ const ThirdStep = ({ data }: Props) => {
         <label htmlFor="tenant-email">Email:</label>
         <input
           type="email"
-          value={data.tenantEmail}
           name="tenant-email"
           id="tenant-email"
+          value={data.tenantEmail}
+          onChange={(e) => updateField("tenantEmail", e.target.value)}
           required
         />
       </div>
@@ -38,6 +40,7 @@ const ThirdStep = ({ data }: Props) => {
           name="tenant-phone"
           id="tenant-phone"
           value={data.tenantPhone}
+          onChange={(e) => updateField("tenantPhone", e.target.value)}
           required
         />
       </div>
