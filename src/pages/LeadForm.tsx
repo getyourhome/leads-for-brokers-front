@@ -44,6 +44,8 @@ const LeadForm = () => {
   const sendFormHandler = async () => {
     const data = {
       neighboorhood: formContent.location,
+      city: "",
+      uf: "",
       listing_purpose: formContent.purpose,
       property_type: formContent.propertyType,
       must_have_items: formContent.mustHaveItems.split(","),
@@ -58,9 +60,7 @@ const LeadForm = () => {
     };
 
     try {
-      await apiClient.post("announcer/register/", {
-        data,
-      });
+      await apiClient.post("/announcer", data);
     } catch (error: unknown) {
       alert("erro ao enviar o cadastro!!");
     }
